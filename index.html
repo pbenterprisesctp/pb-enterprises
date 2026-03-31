@@ -1,175 +1,196 @@
-<!DOC<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>PB Enterprises | GST | ITR | Online Services | PC Assembly</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PB Enterprises | Financial & Digital Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Hind:wght@600&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
+        :root { --primary: #1e40af; --accent: #059669; --bg: #f8fafc; --text: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        /* --- HEADER (NO LOGO) --- */
+        nav { 
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; 
+            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .brand-name { font-size: 1.8rem; font-weight: 900; color: var(--primary); letter-spacing: -1px; text-transform: uppercase; }
+        
+        /* Chota Language Dropdown */
+        .lang-select { 
+            background: #f1f5f9; border: 1px solid #cbd5e1; padding: 3px 6px; 
+            border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.65rem; color: var(--primary);
         }
 
-        header {
-            background: #0b3d91;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
+        /* --- HERO --- */
+        .hero { padding: 80px 8% 40px; text-align: center; background: #fff; border-bottom: 1px solid #eee; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); font-weight: 900; }
+        .tagline { color: var(--accent); font-weight: 700; font-size: 1.3rem; margin-bottom: 25px; display: inline-block; border-bottom: 3px solid var(--accent); }
 
-        nav {
-            background: #14532d;
-            padding: 12px;
-            text-align: center;
+        /* --- SERVICES --- */
+        .container { padding: 60px 8%; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; font-weight: 800; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { 
+            background: #fff; padding: 40px 30px; border-radius: 20px; border: 1px solid #e2e8f0; 
+            transition: 0.3s; cursor: pointer; text-align: center;
         }
+        .card:hover { border-color: var(--primary); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; color: var(--primary); }
+        .card ul { text-align: left; list-style: none; font-size: 0.95rem; color: #475569; }
+        .card ul li { margin-bottom: 8px; }
+        .card ul li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
+        /* --- REVIEW BOX (GENUINE) --- */
+        .review-box { text-align: center; padding: 50px 5%; background: #fff; border-radius: 30px; border: 2px dashed #cbd5e1; margin: 0 8% 60px; }
+        .rev-btn { background: var(--accent); color: #fff; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; }
 
-        section {
-            padding: 40px;
-            text-align: center;
-        }
+        /* --- CONTACT FORM --- */
+        .flex-box { display: flex; flex-wrap: wrap; gap: 30px; padding: 60px 8%; background: #fff; border-top: 1px solid #eee; }
+        .form-container { flex: 1; min-width: 320px; background: #f8fafc; padding: 40px; border-radius: 25px; border: 1px solid #e2e8f0; }
+        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 1rem; outline: none; font-family: inherit; }
+        .submit-btn { width: 100%; padding: 18px; background: var(--primary); color: #fff; border: none; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
 
-        .services {
-            background: white;
-        }
+        /* --- TRIPLE FLOATING BUTTONS --- */
+        .float-wrap { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
+        .f-btn { width: 55px; height: 55px; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        .f-btn:hover { transform: scale(1.1); }
+        .wa { background: #25d366; }
+        .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .em { background: #ea4335; }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 8px;
-            background: #14532d;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+        footer { text-align: center; padding: 30px; background: #f1f5f9; font-weight: 600; color: #64748b; }
 
-        .social-btn {
-            background: #0b3d91;
-        }
-
-        form {
-            max-width: 400px;
-            margin: auto;
-            text-align: left;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #0b3d91;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        footer {
-            background: #0b3d91;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        [lang="ur"] body { direction: rtl; text-align: right; }
+        [lang="ur"] .card ul { text-align: right; }
+        @media (max-width: 768px) { .brand-name { font-size: 1.3rem; } .hero h1 { font-size: 2.2rem; } }
     </style>
 </head>
-
 <body>
-
-<header>
-    <h1>PB Enterprises</h1>
-    <p>Complete Financial & Digital Solutions</p>
-    <p>Chhatapur, Supaul, Bihar - 852137</p>
-</header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#booking">Book Service</a>
-    <a href="#contact">Contact</a>
+    <div class="brand-name">PB Enterprises</div>
+    <select class="lang-select" onchange="changeLang(this.value)">
+        <option value="en">EN</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ur">اردو</option>
+    </select>
 </nav>
 
-<section id="home">
-    <h2>Welcome to PB Enterprises</h2>
-    <p>GST Registration | ITR Filing Assistance | Online Forms | PC Assembly</p>
+<div class="hero">
+    <h1>PB Enterprises</h1>
+    <div class="tagline" id="h-tag">Complete Financial & Digital Services</div>
+    <p id="h-desc" style="color: #64748b; font-weight: 500;">Trusted local partner for GST, ITR, PAN, Aadhar & PC Assembling.</p>
+</div>
 
-    <a href="https://wa.me/918406897704" class="btn">WhatsApp</a>
-    <a href="https://instagram.com/imkrpankaj" class="btn social-btn">Instagram</a>
-    <a href="mailto:imkrpankaj98@gmail.com" class="btn">Email Us</a>
+<section class="container" id="services">
+    <h2 class="section-title" id="s-title">Our Services</h2>
+    <div class="grid">
+        <div class="card" onclick="setSrv('Digital-Docs')">
+            <i class="fas fa-fingerprint"></i>
+            <h3 id="s1-t">Digital Services</h3>
+            <ul id="s1-l">
+                <li>New PAN & Correction</li>
+                <li>Aadhar Update Help</li>
+                <li>RTPS (Caste/Income/Residence)</li>
+                <li>Voter ID & Online Forms</li>
+            </ul>
+        </div>
+        <div class="card" onclick="setSrv('Finance-Tax')">
+            <i class="fas fa-chart-line"></i>
+            <h3 id="s2-t">Financial Consulting</h3>
+            <ul id="s2-l">
+                <li>GST Registration & Filing</li>
+                <li>ITR (Income Tax Return)</li>
+                <li>MSME / Udyam Registration</li>
+                <li>Accounting Support</li>
+            </ul>
+        </div>
+        <div class="card" onclick="setSrv('IT-Computer')">
+            <i class="fas fa-laptop-code"></i>
+            <h3 id="s3-t">IT & Hardware</h3>
+            <ul id="s3-l">
+                <li>Custom Gaming/Office PC</li>
+                <li>Laptop Repairing</li>
+                <li>Genuine Parts & Software</li>
+                <li>Technical Support</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section id="services" class="services">
-    <h2>Our Services</h2>
-    <p><strong>GST & ITR Services</strong><br>
-    GST Registration | GST Return Filing | ITR Filing Assistance</p>
+<div class="review-box">
+    <h2 id="r-title" style="margin-bottom:15px; color:var(--primary);">Customer Reviews</h2>
+    <p id="r-msg" style="color:#64748b; font-style:italic; margin-bottom:20px;">No reviews yet. Share your genuine experience with us!</p>
+    <a href="#contact" class="rev-btn" onclick="setSrv('Review')" id="r-btn">Write a Review</a>
+</div>
 
-    <p><strong>Online Form Services</strong><br>
-    Govt Forms | Scholarship Forms | Exam Registration</p>
-
-    <p><strong>Computer Services</strong><br>
-    PC Assembly | Laptop Repair | Printer Setup</p>
+<section id="contact" class="flex-box">
+    <div class="form-container">
+        <h2 id="f-title" style="margin-bottom:25px; color:var(--primary);">Quick Inquiry</h2>
+        <form action="https://formspree.io/f/xgopolvg" method="POST">
+            <input type="text" name="Name" placeholder="Full Name" required>
+            <input type="tel" name="WhatsApp" placeholder="WhatsApp Number" required>
+            <select name="Service" id="srv-dropdown" onchange="chkMsg(this.value)" required>
+                <option value="" disabled selected id="opt-def">Choose a Service</option>
+                <option value="Digital-Docs">Digital (Aadhar/PAN/RTPS)</option>
+                <option value="Finance-Tax">Financial (GST/ITR)</option>
+                <option value="IT-Computer">IT & Computer Hardware</option>
+                <option value="Review">Submit Review</option>
+            </select>
+            <textarea name="Message" id="msg-area" rows="5" placeholder="How can we help you?"></textarea>
+            <button type="submit" class="submit-btn" id="sub-btn">Send Message</button>
+        </form>
+    </div>
+    <div style="flex:1.2; min-width:320px; border-radius:25px; overflow:hidden; border:1px solid #ddd;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14343.344445353526!2d86.8778401!3d26.1856385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef00799443653b%3A0x6b2e9d28e7563f8!2sChhatapur%2C%20Bihar!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+    </div>
 </section>
 
-<section id="booking">
-    <h2>Book a Service</h2>
+<div class="float-wrap">
+    <a href="https://wa.me/916299317027" class="f-btn wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/pb.enterprises.india" class="f-btn ig" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:pbenterprisesctp@gmail.com" class="f-btn em"><i class="fas fa-envelope"></i></a>
+</div>
 
-    <form action="mailto:imkrpankaj98@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <input type="tel" name="Phone" placeholder="Your Phone Number" required>
-        <input type="text" name="Service" placeholder="Service Required" required>
-        <textarea name="Message" placeholder="Additional Details"></textarea>
-        <button type="submit">Submit Booking</button>
-    </form>
-</section>
+<footer>© 2026 PB ENTERPRISES | Chhatapur, Supaul, Bihar</footer>
 
-<section id="contact" class="services">
-    <h2>Contact Us</h2>
-    <p>Address: Chhatapur, Supaul, Bihar - 852137</p>
-    <p>Phone: +91-8406897704</p>
-    <p>Email: imkrpankaj98@gmail.com</p>
-</section>
-
-<footer>
-    <p>© 2026 PB Enterprises | All Rights Reserved</p>
-</footer>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/918406897704" class="whatsapp-float">WA</a>
-
+<script>
+    function chkMsg(v) {
+        const m = document.getElementById('msg-area');
+        const l = document.documentElement.lang || 'en';
+        if(v === 'Review') {
+            m.placeholder = (l === 'hi') ? "अपना असली रिव्यू यहाँ लिखें..." : (l === 'ur' ? "اپنی رائے یہاں لکھیں" : "Write your honest review here...");
+        } else {
+            m.placeholder = (l === 'hi') ? "हम आपकी क्या मदद कर सकते हैं?" : (l === 'ur' ? "ہم کیا مدد کر سکتے ہیں؟" : "How can we help you?");
+        }
+    }
+    function setSrv(v) {
+        document.getElementById('srv-dropdown').value = v;
+        chkMsg(v);
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    }
+    function changeLang(lang) {
+        const c = {
+            hi: { t:"पूर्ण वित्तीय और डिजिटल सेवाएँ", s:"हमारी सेवाएँ", f:"पूछताछ फॉर्म", r:"ग्राहकों की राय", rm:"अभी तक कोई रिव्यू नहीं है। अपनी राय साझा करें!", rb:"रिव्यू लिखें" },
+            ur: { t:"مکمل مالیاتی اور ڈیجیٹل خدمات", s:"ہماری خدمات", f:"انکوائری فارم", r:"صارفین کی رائے", rm:"ابھی تک کوئی رائے نہیں ہے۔ اپنی رائے دیں!", rb:"رائے لکھیں" },
+            en: { t:"Complete Financial & Digital Services", s:"Our Services", f:"Quick Inquiry Form", r:"Customer Reviews", rm:"No reviews yet. Share your genuine experience!", rb:"Write a Review" }
+        };
+        const d = c[lang] || c.en;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang==='ur')?'rtl':'ltr';
+        document.getElementById('h-tag').innerText = d.t;
+        document.getElementById('s-title').innerText = d.s;
+        document.getElementById('f-title').innerText = d.f;
+        document.getElementById('r-title').innerText = d.r;
+        document.getElementById('r-msg').innerText = d.rm;
+        document.getElementById('r-btn').innerText = d.rb;
+        chkMsg(document.getElementById('srv-dropdown').value);
+    }
+</script>
 </body>
-</html>TYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
-
-<body>
-  
-</body>
-
 </html>
